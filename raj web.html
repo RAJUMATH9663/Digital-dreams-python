@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Professional Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    background: lch(34.63% 71.04 37.59);
+    color: #bd0909;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #f78282;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(231, 226, 226, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    padding-top: 80px;
+    background: linear-gradient(135deg, #5f6064, #764ba2);
+    color: rgb(3, 1, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+}
+
+.hero-text p {
+    margin: 10px 0 20px;
+    max-width: 400px;
+}
+
+.hero-text button {
+    padding: 12px 25px;
+    border: none;
+    background: black;
+    color: rgb(182, 2, 2);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.hero-text button:hover {
+    background: #222;
+}
+
+/* IMAGE */
+.hero img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid rgb(160, 0, 0);
+    box-shadow: 0 10px 30px rgba(3, 131, 78, 0.3);
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.box {
+    background: rgb(14, 9, 9);
+    padding: 40px;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* SERVICES */
+.services {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #f1f1f1;
+    padding: 30px;
+    width: 260px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* TESTIMONIALS */
+.reviews {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review {
+    background: #f1f1f1;
+    padding: 25px;
+    width: 260px;
+    border-radius: 15px;
+}
+
+/* CONTACT */
+form {
+    max-width: 450px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #110e0e;
+}
+
+form button {
+    padding: 12px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">RAJU</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h3>Hello, I'm</h3>
+            <h1>RAJU M </h1>
+            <p>DATA ANALYTICS.</p>
+            <button>Download CV</button>
+        </div>
+
+        <!-- PROFILE PHOTO -->
+        <img src="E:\1760785879063.jpg" alt="Profile Photo">
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="box">
+            <h2>About Me</h2>
+            <p>
+                I am a passionate frontend developer who loves creating modern, 
+                responsive, and user-friendly websites using HTML, CSS, and JavaScript.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="box">
+            <h2>My Services</h2>
+            <div class="services">
+                <div class="card">Web Design</div>
+                <div class="card">Frontend Development</div>
+                <div class="card">UI/UX Design</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <div class="container">
+        <div class="box">
+            <h2>Testimonials</h2>
+            <div class="reviews">
+                <div class="review">"Excellent work quality!"</div>
+                <div class="review">"Very professional developer."</div>
+                <div class="review">"Highly recommended."</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="box">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Professional Portfolio
+</footer>
+</body>
+</html>
