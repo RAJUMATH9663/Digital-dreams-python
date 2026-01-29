@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Greeting</title>
+</head>
+<body>
+    <h2>Student Greeting App</h2>
+    <form method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name"><br><br>
+        Course: <input type="text" name="course"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
