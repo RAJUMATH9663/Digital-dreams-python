@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Book</title>
+<style>
+body{
+    font-family: Arial;
+    background:#eef2f3;
+}
+
+form{
+    width:350px;
+    background:white;
+    margin:80px auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+    color:#333;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#45a049;
+}
+</style>
+</head>
+
+<body>
+
+<form method="post">
+{% csrf_token %}
+<h2>➕ Add Book</h2>
+
+Title:
+<input name="title">
+
+Author:
+<input name="author">
+
+ISBN:
+<input name="isbn">
+
+<button>Add Book</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Issue Book</title>
+<style>
+body{
+    font-family: Arial;
+    background:#f0f4f7;
+}
+
+form{
+    width:400px;
+    background:white;
+    margin:80px auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+}
+
+select{
+    width:100%;
+    padding:8px;
+    margin:10px 0;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#FF9800;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+button:hover{
+    background:#FB8C00;
+}
+</style>
+</head>
+
+<body>
+
+<form method="post">
+{% csrf_token %}
+<h2>📕 Issue Book</h2>
+
+Student:
+<select name="student">
+{% for s in students %}
+<option value="{{ s.id }}">{{ s.name }}</option>
+{% endfor %}
+</select>
+
+Book:
+<select name="book">
+{% for b in books %}
+<option value="{{ b.id }}">{{ b.title }}</option>
+{% endfor %}
+</select>
+
+<button>Issue Book</button>
+</form>
+
+</body>
+</html>
