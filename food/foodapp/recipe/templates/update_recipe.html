@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block start %}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .brand-title {
+    color: #28a745;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .preview-img {
+    height: 100px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+</style>
+
+<div class="container my-5">
+
+  <!-- Page Header -->
+  <div class="text-center mb-4">
+    <h2 class="brand-title">GeeksforGeeks</h2>
+    <p class="text-muted">Update your recipe details</p>
+  </div>
+
+  <!-- Update Recipe Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="mb-3">Update Recipe</h4>
+          <hr>
+
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+              <label>Recipe Name</label>
+              <input
+                type="text"
+                name="recipe_name"
+                value="{{ recipe.recipe_name }}"
+                class="form-control"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label>Recipe Description</label>
+              <textarea
+                name="recipe_description"
+                class="form-control"
+                rows="4"
+                required
+              >{{ recipe.recipe_description }}</textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Recipe Image</label>
+              <input
+                type="file"
+                name="recipe_image"
+                class="form-control-file"
+              >
+            </div>
+
+            {% if recipe.recipe_image %}
+            <div class="form-group">
+              <label class="d-block">Current Image</label>
+              <img
+                src="/media/{{ recipe.recipe_image }}"
+                class="preview-img"
+                alt="Recipe Image"
+              >
+            </div>
+            {% endif %}
+
+            <div class="d-flex justify-content-between mt-4">
+              <a href="/" class="btn btn-secondary">
+                Cancel
+              </a>
+              <button type="submit" class="btn btn-success">
+                Update Recipe
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

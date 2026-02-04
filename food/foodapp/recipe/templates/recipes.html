@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block start %}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .brand-title {
+    color: #28a745;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .table img {
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+</style>
+
+<div class="container my-5">
+
+  <!-- Page Header -->
+  <div class="text-center mb-4">
+    <h2 class="brand-title">Digital Dreams</h2>
+    <p class="text-muted">Manage your recipes efficiently</p>
+  </div>
+
+  <!-- Add Recipe Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="mb-3">Add New Recipe</h4>
+          <hr>
+
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+              <label>Recipe Name</label>
+              <input
+                type="text"
+                name="recipe_name"
+                class="form-control"
+                placeholder="Enter recipe name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label>Recipe Description</label>
+              <textarea
+                name="recipe_description"
+                class="form-control"
+                rows="4"
+                placeholder="Enter recipe description"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Recipe Image</label>
+              <input
+                type="file"
+                name="recipe_image"
+                class="form-control-file"
+              >
+            </div>
+
+            <button type="submit" class="btn btn-success btn-block">
+              Add Recipe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Section -->
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <form method="get">
+        <div class="form-group">
+          <label>Search Recipe</label>
+          <input
+            type="text"
+            name="search"
+            class="form-control"
+            placeholder="Search by recipe name"
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Recipe Table -->
+  <div class="table-responsive mt-5">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Recipe Name</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th style="width: 160px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for recipe in recipes %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ recipe.recipe_name }}</td>
+          <td>{{ recipe.recipe_description }}</td>
+          <td>
+            {% if recipe.recipe_image %}
+              <img src="/media/{{ recipe.recipe_image }}" alt="Recipe Image">
+            {% else %}
+              <span class="text-muted">No Image</span>
+            {% endif %}
+          </td>
+          <td>
+            <a href="/update_recipe/{{ recipe.id }}/" class="btn btn-sm btn-success">
+              Update
+            </a>
+            <a href="/delete_recipe/{{ recipe.id }}/" class="btn btn-sm btn-danger">
+              Delete
+            </a>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="text-center text-muted">
+            No recipes found
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+{% endblock %}
